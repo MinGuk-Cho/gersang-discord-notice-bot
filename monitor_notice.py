@@ -83,9 +83,12 @@ def main():
         print("ℹ 최초 실행: 현재 상단 공지 저장만 함")
         return
 
-    print("🧪 테스트 알림 전송")
-    send_notice_alert(current_title)
-    save_last_title(current_title)
+    if current_title != saved_title:
+        print("🆕 새 공지 감지")
+        send_notice_alert(current_title)
+        save_last_title(current_title)
+    else:
+        print("변경 없음")
 
 
 if __name__ == "__main__":
